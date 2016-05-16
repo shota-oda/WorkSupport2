@@ -12,17 +12,11 @@ var WorkGadget = WorkGadget || {};
 	WorkGadget.View.ReadReportItem = Backbone.Marionette.ItemView.extend({
 		tagName: 'tr',
 		template: '#template-ReadReportItem',
-		ui: {
-			button : "tr"
-		},
 
 		initialize : function(){
-			this.on("click", this.showModal)
+			this.$el("click", this.showModal)
 		},
 
-		events : {
-			"click @ui.button" : "showModal"
-		},
 
 		showModal : function(){
 			var $modal = $(
