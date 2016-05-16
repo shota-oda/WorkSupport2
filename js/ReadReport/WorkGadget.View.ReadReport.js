@@ -15,7 +15,7 @@ var WorkGadget = WorkGadget || {};
 
 		ui : {
 			"button" : "td"
-		}
+		},
 
 		events :{
 			"click @ui.button" : "showModal"
