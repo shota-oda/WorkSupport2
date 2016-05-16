@@ -9,8 +9,8 @@ var WorkGadget = WorkGadget || {};
 
 	//Read Repoert View
 	// ------------------
-	WorkGadget.View.ReadReportRow = Backbone.Marionette.ItemView.extend({
-		template: '#template-ReadReportRow',
+	WorkGadget.View.ReadReportItem = Backbone.Marionette.ItemView.extend({
+		template: '#template-ReadReportItem',
 	})
 
 	WorkGadget.View.ReadReport = Backbone.Marionette.CompositeView.extend({
@@ -30,8 +30,8 @@ var WorkGadget = WorkGadget || {};
       change: 'render'
     },
 
-		childView: WorkGadget.View.ReadReportRow,
-		childViewContainer: '#MailRowContainer',
+		childView: WorkGadget.View.ReadReportItem,
+		childViewContainer: '#ReportItemContainer',
 
 		initialize: function (){
 			this.bindUIElements();
