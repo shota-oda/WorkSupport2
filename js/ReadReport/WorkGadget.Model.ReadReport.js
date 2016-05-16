@@ -93,7 +93,7 @@ var WorkGadget = WorkGadget || {};
 						console.log(m);
 						return;
 					}
-					
+
 					var body = getBody(m.payload)
 					var model = new Backbone.Model({
 						author : getHeader(m.payload.headers, "From")
