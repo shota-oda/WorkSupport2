@@ -21,7 +21,7 @@ var WorkGadget = WorkGadget || {};
 		},
 
 		showModal : function(){
-			var ifrm = $('#iframe-' + this.model.get("mid")[0].contentWindow.document;
+			var ifrm = $('#iframe-' + this.model.get("mid"))[0].contentWindow.document;
 			$('body', ifrm).html(getBody(message.payload));
 		},
 
