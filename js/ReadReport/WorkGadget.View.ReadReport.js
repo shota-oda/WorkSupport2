@@ -14,9 +14,11 @@ var WorkGadget = WorkGadget || {};
 		template: '#template-ReadReportItem',
 
 		initialize : function(){
-			this.$el.on("click", this.showModal)
 		},
 
+		onShow : function(){
+			this.$el.on("click", this.showModal)
+		}
 
 		showModal : function(){
 			var $modal = $(
