@@ -21,8 +21,28 @@ var WorkGadget = WorkGadget || {};
 		},
 
 		showModal : function(){
-			var ifrm = $('#iframe-' + this.model.get("mid"))[0].contentWindow.document;
-			$('body', ifrm).html(getBody(message.payload));
+			var $modal = $(
+				'<div class="modal fade" id="message-modal-' + this.model.get("mid") +
+					'" tabindex="-1" role="dialog" aria-labelledby="ModalLabel">\
+					<div class="modal-dialog modal-lg">\
+						<div class="modal-content">\
+							<div class="modal-header">\
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">\
+									<span aria-hidden="true">&times;</span>\
+								</button>\
+								<h4 class="modal-title" id="ModalLabel">' +
+									this.model.get("author") +
+								'</h4>\
+							</div>\
+							<div class="modal-body">\
+								<iframe srcdoc="<p>Loading...</p>">\
+								</iframe>\
+							</div>\
+						</div>\
+					</div>\
+				</div>')
+			var ifrm = $modal.find("iframe")[0].contentWindow.document;
+			$('body', ifrm).html(this.model.get("body"));
 		},
 
 	})
