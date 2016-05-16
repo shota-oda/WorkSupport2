@@ -48,7 +48,7 @@ var WorkGadget = WorkGadget || {};
 			$modal.find("iframe").contents()
 				.find("body")
 				.html(this.model.get("content"))
-				.modal();
+			$modal.modal();
 		},
 
 	})
