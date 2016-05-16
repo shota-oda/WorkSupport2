@@ -24,6 +24,10 @@ var WorkGadget = WorkGadget || {};
 		initialize : function(){
 		},
 
+		onShow : {
+			
+		}
+
 		showModal : function(){
 			var $modal = $(
 				'<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="ModalLabel">\
