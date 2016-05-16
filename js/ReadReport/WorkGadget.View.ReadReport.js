@@ -47,6 +47,10 @@ var WorkGadget = WorkGadget || {};
 		},
 
 		showModal : function(){
+			var content = this.model.get("content");
+			if (this.model.get("type") == "text") {
+				content = "<pre>" + content +  "</pre>"
+			}
 			this.$el.find(".modal-body")
 				.html(this.model.get("content"))
 			this.$el.find(".modal").modal();
