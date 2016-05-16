@@ -52,7 +52,7 @@ var WorkGadget = WorkGadget || {};
 			this.$el.find("iframe").contents()
 				.find("body")
 				.html(this.model.get("content"))
-			$(".modal").modal();
+			this.$el.(".modal").modal();
 		},
 
 	})
