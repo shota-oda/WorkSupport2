@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en" data-framework="marionettejs">
+	<head>
+		<meta charset="utf-8">
+		<title>ApiTest</title>
+		<!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- bootstrap datepicker -->
+    <link rel="stylesheet" type="text/css" href="node_modules/bootstrap.datepicker/css/bootstrap-datepicker3.min.css">
+
+	</head>
+	<body>
+		<div class="input-group date" data-provide="datepicker">
+		    <input type="text" class="form-control" readonly="readonly">
+		    <div class="input-group-addon">
+		        <span class="glyphicon glyphicon-calendar"></span>
+		    </div>
+		</div>
+		<script src="node_modules/jquery/dist/jquery.js"></script>
+    
+    	<script src="node_modules/bootstrap.datepicker/js/bootstrap-datepicker.min.js"></script>
+   	</body>
+   	<script type="text/javascript">
+   		$(function(){
+   			$(".input-group.date").datepicker({
+			    todayBtn: "linked",
+			    orientation: "bottom auto",
+			    keyboardNavigation: false,
+			    daysOfWeekDisabled: "0,6",
+			    autoclose: true,
+			    todayHighlight: true,
+			    format: { 
+			    	toDisplay: function(date, format, language) {
+			    		var d = new Date(date);
+			    		return d.getFullYear() + "/" + (d.getMonth() + 1) + "/" + d.getDate()
+			    	},
+        			toValue: function (date, format, language) {
+			            var d = new Date(date);
+			            return d.getFullYear() + "-" + (d.getMonth() + 1) + "-" + d.getDate()
+        			}
+        		}
+			});
+   		});
+   	</script>
+</html>
