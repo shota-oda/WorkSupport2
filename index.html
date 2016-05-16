@@ -116,8 +116,26 @@
       </div><!-- /.modal -->
     </script>
     <script type="text/html" id="template-ReadReportItem">
-      <td><%- author %></td>
+      <td><a href="#Modal-<%- mid %>"><%- author %></a></td>
       <td><%- date %></td>
+      <div class="modal fade" id="Modal-<%- mid %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+              <h4 class="modal-title" id="myModalLabel">
+                <%- author %>
+              </h4>
+            </div>
+            <div class="modal-body">
+              <iframe id="iframe-<%- mid %>" srcdoc="<p>Loading...</p>">
+              </iframe>
+            </div>
+          </div>
+        </div>
+      </div>'
     </script>
     <script type="text/html" id="template-ReadReport">
       <div class="row">
