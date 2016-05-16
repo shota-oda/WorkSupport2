@@ -44,7 +44,6 @@ var WorkGadget = WorkGadget || {};
 						</div>\
 					</div>\
 				</div>')
-			$("body").append($modal);
 			$modal.find("iframe").contents()
 				.find("body")
 				.html(this.model.get("content"))
