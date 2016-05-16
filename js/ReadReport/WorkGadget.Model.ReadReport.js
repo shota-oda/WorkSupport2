@@ -96,10 +96,10 @@ var WorkGadget = WorkGadget || {};
 
 					var body = getBody(m.payload)
 					var model = new Backbone.Model({
-						author : getHeader(m.headers, "From")
+						author : getHeader(m.payload.headers, "From")
 						,content : body.content
 						,type : body.type
-						,date : getHeader(m.headers, "Date")
+						,date : getHeader(m.payload.headers, "Date")
 					})
 
 					callback(model);
