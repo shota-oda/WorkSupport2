@@ -25,7 +25,7 @@ var WorkGadget = WorkGadget || {};
 
 		},
 
-		onRender : {
+		onRender : function{
 			var $modal = $(
 				'<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="ModalLabel">\
 					<div class="modal-dialog modal-lg">\
