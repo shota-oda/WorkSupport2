@@ -17,11 +17,10 @@ var WorkGadget = WorkGadget || {};
 		},
 
 		onShow : function(){
-			this.$el.on("click", this.showModal)
+			this.listenTo(this.$el, 'click', this.showModal)
 		},
 
 		showModal : function(){
-			var model = this.model
 			var $modal = $(
 				'<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="ModalLabel">\
 					<div class="modal-dialog modal-lg">\
@@ -31,7 +30,7 @@ var WorkGadget = WorkGadget || {};
 									<span aria-hidden="true">&times;</span>\
 								</button>\
 								<h4 class="modal-title" id="ModalLabel">' +
-									model.get("author") +
+									this.model.get("author") +
 								'</h4>\
 							</div>\
 							<div class="modal-body">\
@@ -42,7 +41,7 @@ var WorkGadget = WorkGadget || {};
 					</div>\
 				</div>')
 			var ifrm = $modal.find("iframe")[0].contentWindow.document;
-			$('body', ifrm).html(model.get("body"));
+			$('body', ifrm).html(this.model.get("body"));
 			$modal.modal();
 		},
 
