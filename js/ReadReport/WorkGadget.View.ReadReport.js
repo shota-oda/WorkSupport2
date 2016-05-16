@@ -52,7 +52,7 @@ var WorkGadget = WorkGadget || {};
 				content = "<pre>" + content +  "</pre>"
 			}
 			this.$el.find(".modal-body")
-				.html(this.model.get("content"))
+				.html(content)
 			this.$el.find(".modal").modal();
 		},
 
