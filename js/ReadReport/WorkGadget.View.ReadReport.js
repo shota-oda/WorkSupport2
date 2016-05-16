@@ -45,9 +45,9 @@ var WorkGadget = WorkGadget || {};
 					</div>\
 				</div>')
 			$("body").append($modal);
-			$modal.modal();
 			var ifrm = $modal.find("iframe")[0].contentWindow.document;
 			$('body', ifrm).html(this.model.get("content"));
+			$modal.modal();
 		},
 
 	})
