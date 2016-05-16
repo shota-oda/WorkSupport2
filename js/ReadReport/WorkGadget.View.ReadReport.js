@@ -22,13 +22,10 @@ var WorkGadget = WorkGadget || {};
 		},
 
 		initialize : function(){
+
 		},
 
-		onShow : {
-			
-		}
-
-		showModal : function(){
+		onRender : {
 			var $modal = $(
 				'<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="ModalLabel">\
 					<div class="modal-dialog modal-lg">\
@@ -48,10 +45,14 @@ var WorkGadget = WorkGadget || {};
 						</div>\
 					</div>\
 				</div>')
-			$modal.find("iframe").contents()
+			this.$el.append($modal)
+		}
+
+		showModal : function(){
+			this.$el.find("iframe").contents()
 				.find("body")
 				.html(this.model.get("content"))
-			$modal.modal();
+			$(".modal").modal();
 		},
 
 	})
