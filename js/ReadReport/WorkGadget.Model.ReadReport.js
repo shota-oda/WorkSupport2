@@ -77,7 +77,7 @@ var WorkGadget = WorkGadget || {};
 		.done(function(messageIDs){
 
 			$.each(messageIDs, function(){
-
+				var id = this;
 				WorkGadget.gApi.mail.getMessage(this)
 				.done(function(m){
 
@@ -93,7 +93,7 @@ var WorkGadget = WorkGadget || {};
 						console.log(m);
 						return;
 					}
-					var id = this
+					
 					var body = getBody(m.payload)
 					var model = new Backbone.Model({
 						author : getHeader(m.payload.headers, "From")
