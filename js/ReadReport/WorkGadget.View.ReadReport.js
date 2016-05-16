@@ -46,7 +46,7 @@ var WorkGadget = WorkGadget || {};
 					</div>\
 				</div>')
 			this.$el.append($modal)
-		}
+		},
 
 		showModal : function(){
 			this.$el.find("iframe").contents()
