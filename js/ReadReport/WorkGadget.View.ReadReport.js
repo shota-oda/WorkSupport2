@@ -10,6 +10,7 @@ var WorkGadget = WorkGadget || {};
 	//Read Repoert View
 	// ------------------
 	WorkGadget.View.ReadReportItem = Backbone.Marionette.ItemView.extend({
+		tagName: 'tr',
 		template: '#template-ReadReportItem',
 	})
 
