@@ -93,11 +93,11 @@ var WorkGadget = WorkGadget || {};
 						console.log(m);
 						return;
 					}
-
+					var id = this
 					var body = getBody(m.payload)
 					var model = new Backbone.Model({
 						author : getHeader(m.payload.headers, "From")
-						,mid: this
+						,mid: id
 						,content : body.content
 						,type : body.type
 						,date : getHeader(m.payload.headers, "Date")
