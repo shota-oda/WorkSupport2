@@ -16,6 +16,10 @@ var WorkGadget = WorkGadget || {};
 			button : "tr"
 		},
 
+		initialize : function(){
+			this.on(click, showModal)
+		}
+
 		events : {
 			"click @ui.button" : "showModal"
 		},
