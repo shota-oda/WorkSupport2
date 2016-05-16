@@ -39,8 +39,6 @@ var WorkGadget = WorkGadget || {};
 								'</h4>\
 							</div>\
 							<div class="modal-body">\
-								<iframe srcdoc="<p>Loading...</p>">\
-								</iframe>\
 							</div>\
 						</div>\
 					</div>\
@@ -49,8 +47,7 @@ var WorkGadget = WorkGadget || {};
 		},
 
 		showModal : function(){
-			this.$el.find("iframe").contents()
-				.find("body")
+			this.$el.find(".modal-body")
 				.html(this.model.get("content"))
 			this.$el.find(".modal").modal();
 		},
