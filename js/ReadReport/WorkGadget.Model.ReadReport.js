@@ -73,7 +73,7 @@ var WorkGadget = WorkGadget || {};
 			.replace("$bd", WorkGadget.Common.fn.getYYYYMMDD(to));
 
 		var d = new $.Deferred();
-		WorkGadget.gApi.mail.getList(query)
+		WorkGadget.gApi.mail.getMessageIDList(query)
 		.done(function(messageIDs){
 
 			$.each(messageIDs, function(){
@@ -93,6 +93,7 @@ var WorkGadget = WorkGadget || {};
 						console.log(m);
 						return;
 					}
+
 					var body = getBody(m.payload)
 					var model = new Backbone.Model({
 						author : getHeader(m.headers, "From")
@@ -100,7 +101,7 @@ var WorkGadget = WorkGadget || {};
 						,type : body.type
 						,date : getHeader(m.headers, "Date")
 					})
-					
+
 					callback(model);
 				});
 			})
