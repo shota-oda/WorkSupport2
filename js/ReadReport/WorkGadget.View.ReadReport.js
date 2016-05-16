@@ -13,11 +13,15 @@ var WorkGadget = WorkGadget || {};
 		tagName: 'tr',
 		template: '#template-ReadReportItem',
 
-		initialize : function(){
+		ui : {
+			"button" : "td"
+		}
+
+		events :{
+			"click @ui.button" : "showModal"
 		},
 
-		onShow : function(){
-			this.listenTo(this.$el, 'click', this.showModal)
+		initialize : function(){
 		},
 
 		showModal : function(){
