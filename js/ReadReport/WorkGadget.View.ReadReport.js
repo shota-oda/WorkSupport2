@@ -13,7 +13,7 @@ var WorkGadget = WorkGadget || {};
 		tagName: 'tr',
 		template: '#template-ReadReportItem',
 		ui: {
-			button : "a"
+			button : "tr"
 		},
 
 		events : {
@@ -22,8 +22,7 @@ var WorkGadget = WorkGadget || {};
 
 		showModal : function(){
 			var $modal = $(
-				'<div class="modal fade" id="message-modal-' + this.model.get("mid") +
-					'" tabindex="-1" role="dialog" aria-labelledby="ModalLabel">\
+				'<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="ModalLabel">\
 					<div class="modal-dialog modal-lg">\
 						<div class="modal-content">\
 							<div class="modal-header">\
@@ -43,6 +42,7 @@ var WorkGadget = WorkGadget || {};
 				</div>')
 			var ifrm = $modal.find("iframe")[0].contentWindow.document;
 			$('body', ifrm).html(this.model.get("body"));
+			$model.modal();
 		},
 
 	})
