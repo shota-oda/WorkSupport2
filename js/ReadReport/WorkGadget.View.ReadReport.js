@@ -18,7 +18,7 @@ var WorkGadget = WorkGadget || {};
 
 		onShow : function(){
 			this.$el.on("click", this.showModal)
-		}
+		},
 
 		showModal : function(){
 			var $modal = $(
