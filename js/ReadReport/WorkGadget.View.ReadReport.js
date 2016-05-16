@@ -12,6 +12,19 @@ var WorkGadget = WorkGadget || {};
 	WorkGadget.View.ReadReportItem = Backbone.Marionette.ItemView.extend({
 		tagName: 'tr',
 		template: '#template-ReadReportItem',
+		ui: {
+			button : "a"
+		},
+
+		events : {
+			"click @ui.button" : "showModal"
+		},
+
+		showModal : function(){
+			var ifrm = $('#iframe-' + this.model.get("mid")[0].contentWindow.document;
+			$('body', ifrm).html(getBody(message.payload));
+		},
+
 	})
 
 	WorkGadget.View.ReadReport = Backbone.Marionette.CompositeView.extend({
