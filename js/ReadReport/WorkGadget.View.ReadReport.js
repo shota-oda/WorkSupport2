@@ -17,7 +17,7 @@ var WorkGadget = WorkGadget || {};
 		},
 
 		initialize : function(){
-			this.on(click, showModal)
+			this.on("click", showModal)
 		},
 
 		events : {
