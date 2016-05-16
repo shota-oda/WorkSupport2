@@ -118,7 +118,7 @@ var WorkGadget = WorkGadget || {};
 			this.collection.reset()
 			var date = this.ui.calendarInput.val()
 
-			WorkGadget.Model.ReadReportItems(date, function (report){
+			WorkGadget.Model.getReadReportItems(date, function (report){
 				$this.collection.add(report);
 			});
 		},
