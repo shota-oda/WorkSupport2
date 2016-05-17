@@ -44,6 +44,10 @@ var WorkGadget = WorkGadget || {};
 			"change @ui.calendarInput": "changeDate",
 		},
 
+		leftCollection:[],
+		centerCollection:[],
+		rightCollection:[],
+
 		initialize: function (){
 			this.bindUIElements();
 		},
@@ -82,11 +86,16 @@ var WorkGadget = WorkGadget || {};
 
 		changeDate: function(){
 			var $this = this;
-			this.collection.reset()
+			this.leftCollection.reset()
+			this.centerCollection.reset()
+			this.rightCollection.reset()
+
 			var date = this.ui.calendarInput.val()
 
 			WorkGadget.Model.getReadReportItems(date, function (report){
-				$this.collection.add(report);
+				$this.leftCollection.add(report);
+				$this.centerCollection.add(report);
+				$this.rightCollection.add(report);
 			});
 		},
 	})
