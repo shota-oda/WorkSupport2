@@ -9,53 +9,8 @@ var WorkGadget = WorkGadget || {};
 
 	//Read Repoert View
 	// ------------------
-	WorkGadget.View.ReadReportItem = Backbone.Marionette.ItemView.extend({
-		tagName: 'tr',
-		template: '#template-ReadReportItem',
-
-		ui : {
-			"button" : "td"
-		},
-
-		events :{
-			"click @ui.button" : "showModal"
-		},
-
-		initialize : function(){
-
-		},
-
-		onRender : function(){
-			var $modal = $(
-				'<div class="modal fade" tabindex="-1" role="dialog" aria-labelledby="ModalLabel">\
-					<div class="modal-dialog modal-lg">\
-						<div class="modal-content">\
-							<div class="modal-header">\
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close">\
-									<span aria-hidden="true">&times;</span>\
-								</button>\
-								<h4 class="modal-title" id="ModalLabel">' +
-									this.model.get("author") +
-								'</h4>\
-							</div>\
-							<div class="modal-body">\
-							</div>\
-						</div>\
-					</div>\
-				</div>')
-			this.$el.append($modal)
-		},
-
-		showModal : function(){
-			var content = this.model.get("content");
-			if (this.model.get("type") == "text") {
-				content = "<pre>" + content +  "</pre>"
-			}
-			this.$el.find(".modal-body")
-				.html(content)
-			this.$el.find(".modal").modal();
-		},
-
+	WorkGadget.View.ReadReportRow = Backbone.Marionette.ItemView.extend({
+		template: '#template-ReadReportRow',
 	})
 
 	WorkGadget.View.ReadReportTable = Backbone.Marionette.CompositeView.extend({
@@ -89,18 +44,9 @@ var WorkGadget = WorkGadget || {};
 			"change @ui.calendarInput": "changeDate",
 		},
 
-<<<<<<< HEAD
-		collectionEvents: {
-      change: 'render'
-    },
-
-		childView: WorkGadget.View.ReadReportItem,
-		childViewContainer: '#ReportItemContainer',
-=======
 		leftCollection:[],
 		centerCollection:[],
 		rightCollection:[],
->>>>>>> master
 
 		initialize: function (){
 			this.bindUIElements();
@@ -147,13 +93,9 @@ var WorkGadget = WorkGadget || {};
 			var date = this.ui.calendarInput.val()
 
 			WorkGadget.Model.getReadReportItems(date, function (report){
-<<<<<<< HEAD
-				$this.collection.add(report);
-=======
 				$this.leftCollection.add(report);
 				$this.centerCollection.add(report);
 				$this.rightCollection.add(report);
->>>>>>> master
 			});
 		},
 	})
