@@ -43,13 +43,36 @@ var WorkGadget = WorkGadget || {};
 		ReadReport: function(){
 			this.ObserveHash();
 
-			var items = new Backbone.Collection();
-			var content = new WorkGadget.View.ReadReport({collection : items})
-			WorkGadget.Model.getReadReportItems(new Date(), function (item){
-				items.add(item);
+			var itemsB = new Backbone.Collection();
+			var itemsE = new Backbone.Collection();
+			var itemsD = new Backbone.Collection();
+
+			var layout = new WorkGadget.View.ReadReportLayout();
+			layout.leftCollection = itemsB;
+			layout.centerCollection = itemsE;
+			layout.rightCollection = itemsD;
+
+			WorkGadget.App.View.Root.showChildView('main', layout);
+
+			var tableB = new WorkGadget.View.ReadReportTable({
+				collection: itemsB
+			});
+			var tableE = new WorkGadget.View.ReadReportTable({
+				collection: itemsE
+			});
+			var tableD = new WorkGadget.View.ReadReportTable({
+				collection: itemsD
 			});
 
-			WorkGadget.App.View.Root.showChildView('main', content);
+			layout.showChildView('left', tableB);
+			layout.showChildView('center', tableE);
+			layout.showChildView('right', tableD);
+
+			WorkGadget.Model.getReadReportItems(new Date(), function (item){
+				itemsB.add(item);
+				itemsE.add(item);
+				itemsD.add(item);
+			});
 		},
 
 		ManageSetting: function(){
