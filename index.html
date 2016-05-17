@@ -111,12 +111,8 @@
       </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
   </script>
-  <script type="text/html" id="template-ReadReportRow">
-    <tr>
-      <td><%- author %></td>
-    </tr>
-  </script>
-  <script type="text/html" id="template-ReadReport">
+
+  <script type="text/html" id="template-ReadReportLayout">
     <div class="row">
       <div class="col-xs-8 col-md-2">
         <div class="input-group date" data-provide="datepicker">
@@ -129,18 +125,48 @@
     </div>
     <br>
     <div class="row">
+      <div class="col-md-4 col-xs-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Business</h3>
+          </div>
+          <div class="panel-body" id="MailLeft">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-xs-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Engineer</h3>
+          </div>
+          <div class="panel-body" id="MailCenter">
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 col-xs-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Designer</h3>
+          </div>
+          <div class="panel-body" id="MailRight">
+          </div>
+        </div>
+      </div>
+    </div>
+  </script>
+  <script type="text/html" id="template-ReadReportTable">
+    <div class="row">
       <table class="table table-hover">
         <thead>
           <tr>
             <th>name</th>
           </tr>
         </thead>
-        <tbody id="MailRowContainer">
+        <tbody class="mailRow">
         </tbody>
       </table>
     </div>
   </script>
-
   <script type="text/html" id="template-ReadReportItem">
     <div class="col-md-6 col-xs-12">
       <div class="panel-group" role="tablist" aria-multiselectable="true">
@@ -156,6 +182,11 @@
         </div>
       </div>
     </div>
+  </script>
+  <script type="text/html" id="template-ReadReportRow">
+    <tr>
+      <td><%- author %></td>
+    </tr>
   </script>
   <script type="text/html" id="template-ManageSetting">
     <div class="row" id="SettingContainer">

@@ -13,18 +13,9 @@ var WorkGadget = WorkGadget || {};
 		template: '#template-ReadReportRow',
 	})
 
-	WorkGadget.View.ReadReport = Backbone.Marionette.CompositeView.extend({
+	WorkGadget.View.ReadReportTable = Backbone.Marionette.CompositeView.extend({
 
-		template: '#template-ReadReport',
-
-		ui: {
-			calendar: ".input-group.date",
-			calendarInput: ".input-group.date input",
-		},
-
-		events: {
-			"change @ui.calendarInput": "changeDate",
-		},
+		template: '#template-ReadReportTable',
 
 		collectionEvents: {
       change: 'render'
@@ -32,6 +23,26 @@ var WorkGadget = WorkGadget || {};
 
 		childView: WorkGadget.View.ReadReportRow,
 		childViewContainer: '#MailRowContainer',
+
+		initialize: function (){
+			this.bindUIElements();
+		},
+	});
+
+	WorkGadget.View.ReadReportLayout = Backbone.Marionette.Layout.extend({
+		template : "template-ReadReportLayout",
+		regions : {
+			left : "#MailLeft",
+			center : "#MailCenter",
+			right : "#MailRight",
+		},
+		ui: {
+			calendar: ".input-group.date",
+			calendarInput: ".input-group.date input",
+		},
+		events: {
+			"change @ui.calendarInput": "changeDate",
+		},
 
 		initialize: function (){
 			this.bindUIElements();
@@ -74,10 +85,9 @@ var WorkGadget = WorkGadget || {};
 			this.collection.reset()
 			var date = this.ui.calendarInput.val()
 
-			WorkGadget.Model.ReadReportItems(date, function (report){
+			WorkGadget.Model.getReadReportItems(date, function (report){
 				$this.collection.add(report);
 			});
 		},
-
-	});
+	})
 })();
