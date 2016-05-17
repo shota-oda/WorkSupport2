@@ -24,7 +24,7 @@ var WorkGadget = WorkGadget || {};
     },
 
 		childView: WorkGadget.View.ReadReportRow,
-		childViewContainer: '#MailRowContainer',
+		childViewContainer: '.mailrow',
 
 		initialize: function (){
 			this.bindUIElements();
