@@ -1,5 +1,5 @@
 body {
-    padding-top: 70px; 
+    padding-top: 70px;
 }
 a{
     cursor: pointer;
@@ -47,4 +47,8 @@ a{
 	width: 200px;
 	height: 89px;
     z-index: 1000;
+}
+.modal-body pre{
+  background-color: #FFF;
+  border: none;
 }
