@@ -36,7 +36,7 @@ var WorkGadget = WorkGadget || {};
 		}
 		encodedBody = encodedBody.replace(/-/g, '+').replace(/_/g, '/').replace(/\s/g, '');
 		return {
-			 content : decodeURIComponent(escape(window.atob(encodedBody)))
+			content : decodeURIComponent(escape(window.atob(encodedBody)))
 			,type : t
 		}
 
@@ -69,8 +69,8 @@ var WorkGadget = WorkGadget || {};
 		/**/
 		//TODO export settings
 		var query = "(to:daily_report_business2016@bizreach.co.jp OR to:rookie_2016@bizreach.co.jp) subject:新卒 after:$ad before:$bd"
-			.replace("$ad", WorkGadget.Common.fn.getYYYYMMDD(from))
-			.replace("$bd", WorkGadget.Common.fn.getYYYYMMDD(to));
+		.replace("$ad", WorkGadget.Common.fn.getYYYYMMDD(from))
+		.replace("$bd", WorkGadget.Common.fn.getYYYYMMDD(to));
 
 		var d = new $.Deferred();
 		WorkGadget.gApi.mail.getList(query)
@@ -100,7 +100,7 @@ var WorkGadget = WorkGadget || {};
 						,type : body.type
 						,date : getHeader(m.headers, "Date")
 					})
-					
+
 					callback(model);
 				});
 			})

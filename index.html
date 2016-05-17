@@ -1,227 +1,227 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <base target="_top">
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-    <!-- bootstrap -->
-    <link rel="stylesheet" type="text/css" href="modules/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="modules/bootstrap/css/bootstrap-theme.min.css">
-    <!-- bootstrap datepicker -->
-    <link rel="stylesheet" type="text/css" href="modules/bootstrap.datepicker/css/bootstrap-datepicker3.min.css">
-    <link rel="stylesheet" href="css/app.css">
-    <!-- Original CSS -->
-    <style>
-    </style>
-  </head>
-  <body>
-    <nav id="Header" class="navbar navbar-default navbar-fixed-top">
-      <div class="container-fluid">
-        <!-- Brand and toggle get grouped for mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#MenuCollapse" aria-expanded="false">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <p class="navbar-text">Work Support</p>
-        </div>
-
-        <div class="collapse navbar-collapse" id="MenuCollapse">
-          <ul class="nav navbar-nav">
-            <li id="SendReport"><a>Send Report</a></li>
-            <li id="ReadReport"><a>Read Reports</a></li>
-            <li id="fix1"><a>Coming Soon</a></li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a>Coming Soon</a></li>
-            <li id="ManageSetting"><a>Setting</a></li>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div><!-- /.container-fluid -->
-    </nav>
-
-    <!-- view Supports -->
-    <div id="LoadFrame">
-      <div>
-        <img src="resource/load.gif" alt="loaging...">
-        <br>
-        <p>please wait. loading submodules ...</p>
+<head>
+  <base target="_top">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  <!-- bootstrap -->
+  <link rel="stylesheet" type="text/css" href="modules/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="modules/bootstrap/css/bootstrap-theme.min.css">
+  <!-- bootstrap datepicker -->
+  <link rel="stylesheet" type="text/css" href="modules/bootstrap.datepicker/css/bootstrap-datepicker3.min.css">
+  <link rel="stylesheet" href="css/app.css">
+  <!-- Original CSS -->
+  <style>
+  </style>
+</head>
+<body>
+  <nav id="Header" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#MenuCollapse" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <p class="navbar-text">Work Support</p>
       </div>
-    </div>
-    <button id="AuthButton" class="btn btn-default" style="display:none;">
-      Start Gadget
-    </button>
-    <div id="Filter"></div>
-    <!-- view Supports -->
 
-    <div id="Main" class="container">
-    </div>
+      <div class="collapse navbar-collapse" id="MenuCollapse">
+        <ul class="nav navbar-nav">
+          <li id="SendReport"><a>Send Report</a></li>
+          <li id="ReadReport"><a>Read Reports</a></li>
+          <li id="fix1"><a>Coming Soon</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a>Coming Soon</a></li>
+          <li id="ManageSetting"><a>Setting</a></li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
 
-    <footer id="Footer"></footer>
-
-    <script type="text/html" id="template-SendReport">
-      <div class="row">
-        <div class="col-md-6 col-xs-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">Daily Report Draft</h3>
-            </div>
-            <div class="panel-body">
-              <textarea id="Report-Content" class="form-control" rows="10"><%- inputTemplate %></textarea>
-              <div class="btn-group" role="group" aria-label="...">
-                <button type="button" class="btn btn-default" data-toggle="modal" data-target="#Report-Modal">send</button>
-                <button type="button" id="Report-Reset" class="btn btn-default">Reset</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 col-xs-12">
-          <div class="panel panel-default">
-            <div class="panel-heading">
-              <h3 class="panel-title">Daily Report Preview</h3>
-            </div>
-            <div class="panel-body">
-              to : <pre><%- to %></pre>
-              cc : <pre><%- cc %></pre>
-              bcc: <pre><%- bcc %></pre>
-              subject : <pre><%- subject %></pre>
-              body : <pre id="Report-Preview"><%- body %></pre>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div id="Report-Modal" class="modal fade" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-sm">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title">Send Report?</h4>
-            </div>
-            <!--
-            <div class="modal-body">
-              <p>modal body if any</p>
-            </div>
-            -->
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-              <button type="button" id="Report-Send" class="btn btn-primary" data-dismiss="modal">Send</button>
-            </div>
-          </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-      </div><!-- /.modal -->
-    </script>
-    <script type="text/html" id="template-ReadReportRow">
-      <tr>
-        <td><%- author %></td>
-      </tr>
-    </script>
-    <script type="text/html" id="template-ReadReport">
-      <div class="row">
-        <div class="col-xs-8 col-md-2">
-          <div class="input-group date" data-provide="datepicker">
-            <input type="text" class="form-control" readonly="readonly" value="<%- todayStr() %>">
-            <div class="input-group-addon">
-                <span class="glyphicon glyphicon-calendar"></span>
-            </div>
-          </div>
-        </div>
-      </div>
+  <!-- view Supports -->
+  <div id="LoadFrame">
+    <div>
+      <img src="resource/load.gif" alt="loaging...">
       <br>
-      <div class="row">
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th>name</th>
-            </tr>
-          </thead>
-          <tbody id="MailRowContainer">
-          </tbody>
-        </table>
-      </div>
-    </script>
+      <p>please wait. loading submodules ...</p>
+    </div>
+  </div>
+  <button id="AuthButton" class="btn btn-default" style="display:none;">
+    Start Gadget
+  </button>
+  <div id="Filter"></div>
+  <!-- view Supports -->
 
-    <script type="text/html" id="template-ReadReportItem">
-      <div class="col-md-6 col-xs-12">
-        <div class="panel-group" role="tablist" aria-multiselectable="true">
-          <div class="panel panel-default">
-            <a class="list-group-item" data-toggle="collapse" href="<%- '#' + cid %>" style="background-color: #f5f5f5">
-                <%- author %>
-            </a>
-            <div id="<%- cid %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="<%- '#' + lid %>">
-              <div class="panel-body">
-                <pre><%- content %></pre>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </script>
-    <script type="text/html" id="template-ManageSetting">
-      <div class="row" id="SettingContainer">
-      </div>
-    </script>
-    <script type="text/html" id="template-ManageSettingItem">
+  <div id="Main" class="container">
+  </div>
+
+  <footer id="Footer"></footer>
+
+  <script type="text/html" id="template-SendReport">
+    <div class="row">
       <div class="col-md-6 col-xs-12">
         <div class="panel panel-default">
           <div class="panel-heading">
-            <h3 class="panel-title"><%- key %></h3>
+            <h3 class="panel-title">Daily Report Draft</h3>
           </div>
           <div class="panel-body">
-            <textarea class="form-control input" rows="<%- row %>"><%- value %></textarea>
-            <div class="btn-group" role="group">
-              <button type="button" class="btn btn-default update">Update</button>
-              <button type="button" class="btn btn-default reset">Reset</button>
+            <textarea id="Report-Content" class="form-control" rows="10"><%- inputTemplate %></textarea>
+            <div class="btn-group" role="group" aria-label="...">
+              <button type="button" class="btn btn-default" data-toggle="modal" data-target="#Report-Modal">send</button>
+              <button type="button" id="Report-Reset" class="btn btn-default">Reset</button>
             </div>
           </div>
         </div>
       </div>
-    </script>
+      <div class="col-md-6 col-xs-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Daily Report Preview</h3>
+          </div>
+          <div class="panel-body">
+            to : <pre><%- to %></pre>
+            cc : <pre><%- cc %></pre>
+            bcc: <pre><%- bcc %></pre>
+            subject : <pre><%- subject %></pre>
+            body : <pre id="Report-Preview"><%- body %></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="Report-Modal" class="modal fade" tabindex="-1" role="dialog">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Send Report?</h4>
+          </div>
+          <!--
+          <div class="modal-body">
+          <p>modal body if any</p>
+        </div>
+      -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+        <button type="button" id="Report-Send" class="btn btn-primary" data-dismiss="modal">Send</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+</script>
+<script type="text/html" id="template-ReadReportRow">
+  <tr>
+    <td><%- author %></td>
+  </tr>
+</script>
+<script type="text/html" id="template-ReadReport">
+  <div class="row">
+    <div class="col-xs-8 col-md-2">
+      <div class="input-group date" data-provide="datepicker">
+        <input type="text" class="form-control" readonly="readonly" value="<%- todayStr() %>">
+        <div class="input-group-addon">
+          <span class="glyphicon glyphicon-calendar"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="row">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>name</th>
+        </tr>
+      </thead>
+      <tbody id="MailRowContainer">
+      </tbody>
+    </table>
+  </div>
+</script>
 
-    <!-- Load Scripts -->
-    <!-- vendor libraries -->
-    <script src="modules/jquery/dist/jquery.js"></script>
-    <script src="modules/underscore/underscore.js"></script>
-    <script src="modules/backbone/backbone.js"></script>
-    <script src="modules/backbone.localstorage/backbone.localStorage.js"></script>
-    <script src="modules/backbone.marionette/lib/backbone.marionette.js"></script>
+<script type="text/html" id="template-ReadReportItem">
+  <div class="col-md-6 col-xs-12">
+    <div class="panel-group" role="tablist" aria-multiselectable="true">
+      <div class="panel panel-default">
+        <a class="list-group-item" data-toggle="collapse" href="<%- '#' + cid %>" style="background-color: #f5f5f5">
+          <%- author %>
+        </a>
+        <div id="<%- cid %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="<%- '#' + lid %>">
+          <div class="panel-body">
+            <pre><%- content %></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</script>
+<script type="text/html" id="template-ManageSetting">
+  <div class="row" id="SettingContainer">
+  </div>
+</script>
+<script type="text/html" id="template-ManageSettingItem">
+  <div class="col-md-6 col-xs-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%- key %></h3>
+      </div>
+      <div class="panel-body">
+        <textarea class="form-control input" rows="<%- row %>"><%- value %></textarea>
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-default update">Update</button>
+          <button type="button" class="btn btn-default reset">Reset</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</script>
 
-    <script src="modules/bootstrap/js/bootstrap.min.js"></script>
-    <script src="modules/bootstrap.datepicker/js/bootstrap-datepicker.min.js"></script>
+<!-- Load Scripts -->
+<!-- vendor libraries -->
+<script src="modules/jquery/dist/jquery.js"></script>
+<script src="modules/underscore/underscore.js"></script>
+<script src="modules/backbone/backbone.js"></script>
+<script src="modules/backbone.localstorage/backbone.localStorage.js"></script>
+<script src="modules/backbone.marionette/lib/backbone.marionette.js"></script>
 
-    <!-- application -->
-    <!-- Common -->
-    <script src="js/Common/Common.js"></script>
-    <script src="js/Common/base64.js"></script>
+<script src="modules/bootstrap/js/bootstrap.min.js"></script>
+<script src="modules/bootstrap.datepicker/js/bootstrap-datepicker.min.js"></script>
 
-    <script src="js/Core/WorkGadget.View.RootLayoutView.js"></script>
-    <script src="js/Core/WorkGadget.View.Header.js"></script>
+<!-- application -->
+<!-- Common -->
+<script src="js/Common/Common.js"></script>
+<script src="js/Common/base64.js"></script>
 
-    <!-- Models(MVC) -->
-    <!-- ManageSetting must be call at first -->
-    <script src="js/ManageSetting/WorkGadget.Model.ManageSetting.js"></script>
-    <script src="js/SendReport/WorkGadget.Model.SendReport.js"></script>
-    <script src="js/ReadReport/WorkGadget.Model.ReadReport.js"></script>
+<script src="js/Core/WorkGadget.View.RootLayoutView.js"></script>
+<script src="js/Core/WorkGadget.View.Header.js"></script>
 
-    <!-- Views -->
-    <script src="js/SendReport/WorkGadget.View.SendReport.js"></script>
-    <script src="js/ReadReport/WorkGadget.View.ReadReport.js"></script>
-    <script src="js/ManageSetting/WorkGadget.View.ManageSetting.js"></script>
+<!-- Models(MVC) -->
+<!-- ManageSetting must be call at first -->
+<script src="js/ManageSetting/WorkGadget.Model.ManageSetting.js"></script>
+<script src="js/SendReport/WorkGadget.Model.SendReport.js"></script>
+<script src="js/ReadReport/WorkGadget.Model.ReadReport.js"></script>
 
-    <script src="js/Core/WorkGadget.Router.js"></script>
-    <script src="js/Core/WorkGadget.js"></script>
+<!-- Views -->
+<script src="js/SendReport/WorkGadget.View.SendReport.js"></script>
+<script src="js/ReadReport/WorkGadget.View.ReadReport.js"></script>
+<script src="js/ManageSetting/WorkGadget.View.ManageSetting.js"></script>
 
-    <!-- Google Api Faced -->
-    <script src="js/GoogleApi/setting.js"></script>
-    <script src="js/GoogleApi/mail.js"></script>
-    <script src="js/GoogleApi/calendar.js"></script>
-    <script src="js/GoogleApi/user.js"></script>
+<script src="js/Core/WorkGadget.Router.js"></script>
+<script src="js/Core/WorkGadget.js"></script>
 
-    <!-- Google Api must call at last because it kicks main method -->
-    <script src="https://apis.google.com/js/client.js?onload=main"></script>
-  </body>
+<!-- Google Api Faced -->
+<script src="js/GoogleApi/setting.js"></script>
+<script src="js/GoogleApi/mail.js"></script>
+<script src="js/GoogleApi/calendar.js"></script>
+<script src="js/GoogleApi/user.js"></script>
+
+<!-- Google Api must call at last because it kicks main method -->
+<script src="https://apis.google.com/js/client.js?onload=main"></script>
+</body>
 </html>
