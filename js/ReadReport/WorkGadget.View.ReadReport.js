@@ -56,8 +56,8 @@ var WorkGadget = WorkGadget || {};
 
 	WorkGadget.View.ReadReportTable = Backbone.Marionette.CompositeView.extend({
 
-		tagName : "div",
-		class: "row",
+		tagName : "table",
+		class: "table table-hover",
 		template: '#template-ReadReportTable',
 
 		collectionEvents: {
