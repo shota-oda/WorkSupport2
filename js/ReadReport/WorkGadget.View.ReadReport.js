@@ -29,7 +29,7 @@ var WorkGadget = WorkGadget || {};
 		},
 	});
 
-	WorkGadget.View.ReadReportLayout = Backbone.Marionette.Layout.extend({
+	WorkGadget.View.ReadReportLayout = Backbone.Marionette.LayoutView.extend({
 		template : "template-ReadReportLayout",
 		regions : {
 			left : "#MailLeft",
